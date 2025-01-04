@@ -9,15 +9,15 @@ const App = () => {
     const fetchData = async () => {
       try {
         const data = await getAllData();
-        console.log('Fetched nodes:', data); // Kiểm tra dữ liệu
+        console.log('Fetched nodes:', data);
         setNodes(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-    fetchData(); // Gọi hàm fetchData trong useEffect
-  }, []); // Empty dependency array, chạy chỉ 1 lần component mounted
+    fetchData();
+  }, []);
 
   if (!nodes || nodes.length === 0) {
     return <div>Đang tải...</div>;

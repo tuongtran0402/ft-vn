@@ -1096,14 +1096,41 @@ FamilyTree._defaultConfig = function(e) {
         }]) && r.hide()
     })), this.obj.element.querySelector("[data-edit-from-save]").addEventListener("click", (function(t) {
         t.preventDefault();
+        function validateFields (data) {
+            const errors = [];
+    
+            // Validate email
+            if (data.email && !/^\S+@\S+\.\S+$/.test(data.email)) {
+                errors.push('Email không hợp lệ.');
+            }
+    
+            // Validate phone
+            if (data.phone && !/^\d+$/.test(data.phone)) {
+                errors.push('Số điện thoại phải là kiểu số.');
+            }
+    
+            // Validate photo
+            if (data.photo && !/^https?:\/\/\S+$/.test(data.photo)) {
+                errors.push('Hình ảnh phải là một đường dẫn hợp lệ.');
+            }
+            return errors;
+        }
         var i = FamilyTree.input.validateAndGetData(a.element);
         if (!1 !== i) {
             var n = r.obj.get(e),
-                o = {
-                    data: FamilyTree.mergeDeep(n, i)
-                };
-            if (!1 === FamilyTree.events.publish("save", [r, o])) return;
-            r.obj.updateNode(o.data, null, !0), r.hide()
+            o = {
+                data: FamilyTree.mergeDeep(n, i)
+            };
+            console.log(o.data,"o.data");
+            
+            const errors = validateFields(o.data);
+        
+            if (errors.length > 0) {
+                alert(`Lỗi cập nhật dữ liệu:\n${errors.join('\n')}`);
+            } else {
+                if (!1 === FamilyTree.events.publish("save", [r, o])) return;
+                r.obj.updateNode(o.data, null, !0), r.hide()
+            }
         }
     }));
     for (var n = this.obj.element.querySelectorAll("[data-input-btn]"), o = 0; o < n.length; o++) {

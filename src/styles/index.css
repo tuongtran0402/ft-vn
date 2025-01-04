@@ -18,3 +18,21 @@ code {
   padding: 0; /* optional, to remove padding */
 }
 
+.bft-form-field-ct label{
+  position: absolute;
+  margin-left: 10px;
+}
+
+.bft-form-field-ct textarea{
+  background: #333;
+  border-radius: 5px;
+  margin-top: 0px;
+  padding: 20px 10px 2px 9px;
+  color: #ccc;
+  font: 16px Helvetica,"Segoe UI",Arial,sans-serif;
+}
+
+.bft-form-field-ct textarea:disabled {
+  border-color: transparent!important;
+  background: none;
+}
