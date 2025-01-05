@@ -792,8 +792,13 @@ FamilyTree._defaultConfig = function(e) {
         l = t.pids.length > 1;
     if (1 == t.pids.length) {
         var s = this.getNode(t.pids[0]);
-        n = t.ftChildrenIds.compare(s.ftChildrenIds)
+        if (s && s.ftChildrenIds) {
+            n = t.ftChildrenIds.compare(s.ftChildrenIds);
+        } else {
+            console.error("Invalid node or ftChildrenIds is undefined", s);
+        }
     }
+        
     return !(!i && !r || a || o) || (!(i || r || a || l || !o || n) || (!(i || r || !a || !n) || (!(i || r || !a || n) || !(i || r || a || !n))))
 }, FamilyTree.prototype.removeNode = function(e, t, i) {
     var r = this;
