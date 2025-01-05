@@ -4,13 +4,13 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAxyEpZHAevZ8wBSmPrMsrIltMg1WeSJ88",
-    authDomain: "family-tree-trung-1.firebaseapp.com",
-    projectId: "family-tree-trung-1",
-    storageBucket: "family-tree-trung-1.firebasestorage.app",
-    messagingSenderId: "932132032739",
-    appId: "1:932132032739:web:71a3885cddc1d93eff35d6"
-};
+    apiKey: "AIzaSyB1id9p96pPw-N2txLrAhVUq4Zdx0ZJPOw",
+    authDomain: "family-tree-77f0f.firebaseapp.com",
+    projectId: "family-tree-77f0f",
+    storageBucket: "family-tree-77f0f.firebasestorage.app",
+    messagingSenderId: "953282019411",
+    appId: "1:953282019411:web:211bb07b3a77785b6746a6"
+  };
 
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
